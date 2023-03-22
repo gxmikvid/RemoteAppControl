@@ -118,7 +118,14 @@ class RAC {
     }
     private static void httpRequest(Socket socket)
     {
-        string requestedFile = "/index.html";
+        byte[] dataBuffer = new byte[1024];
+        socket.Receive(dataBuffer);
+        string request = DecodeWebSocketFrame(dataBuffer);
+        string requestedFile = request.Split(' ')[1];
+        if (requestedFile == "/")
+        {
+            requestedFile = "/index.html";
+        }
         string fileExtension = Path.GetExtension(requestedFile);
         string contentType = GetContentType(fileExtension);
 

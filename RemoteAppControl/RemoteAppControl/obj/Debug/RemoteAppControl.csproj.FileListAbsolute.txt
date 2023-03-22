@@ -18,3 +18,13 @@ D:\RANDOM SHIT 2.0\háaszéhonnétudjam\záró\RemoteAppControl\RemoteAppControl
 D:\RANDOM SHIT 2.0\háaszéhonnétudjam\záró\RemoteAppControl\RemoteAppControl\obj\Debug\RemoteAppControl.csproj.CopyComplete
 D:\RANDOM SHIT 2.0\háaszéhonnétudjam\záró\RemoteAppControl\RemoteAppControl\obj\Debug\RemoteAppControl.exe
 D:\RANDOM SHIT 2.0\háaszéhonnétudjam\záró\RemoteAppControl\RemoteAppControl\obj\Debug\RemoteAppControl.pdb
+C:\Users\cisco\Desktop\RemoteAppControl-main\RemoteAppControl\RemoteAppControl\bin\Debug\RemoteAppControl.exe.config
+C:\Users\cisco\Desktop\RemoteAppControl-main\RemoteAppControl\RemoteAppControl\bin\Debug\RemoteAppControl.exe
+C:\Users\cisco\Desktop\RemoteAppControl-main\RemoteAppControl\RemoteAppControl\bin\Debug\RemoteAppControl.pdb
+C:\Users\cisco\Desktop\RemoteAppControl-main\RemoteAppControl\RemoteAppControl\bin\Debug\OpenHardwareMonitorLib.dll
+C:\Users\cisco\Desktop\RemoteAppControl-main\RemoteAppControl\RemoteAppControl\obj\Debug\RemoteAppControl.csproj.AssemblyReference.cache
+C:\Users\cisco\Desktop\RemoteAppControl-main\RemoteAppControl\RemoteAppControl\obj\Debug\RemoteAppControl.csproj.SuggestedBindingRedirects.cache
+C:\Users\cisco\Desktop\RemoteAppControl-main\RemoteAppControl\RemoteAppControl\obj\Debug\RemoteAppControl.csproj.CoreCompileInputs.cache
+C:\Users\cisco\Desktop\RemoteAppControl-main\RemoteAppControl\RemoteAppControl\obj\Debug\RemoteAppControl.csproj.CopyComplete
+C:\Users\cisco\Desktop\RemoteAppControl-main\RemoteAppControl\RemoteAppControl\obj\Debug\RemoteAppControl.exe
+C:\Users\cisco\Desktop\RemoteAppControl-main\RemoteAppControl\RemoteAppControl\obj\Debug\RemoteAppControl.pdb
