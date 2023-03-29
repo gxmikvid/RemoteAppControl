@@ -37,3 +37,5 @@ C:\Users\2018209\Desktop\RemoteAppControl-main\RemoteAppControl-main\RemoteAppCo
 C:\Users\2018209\Desktop\RemoteAppControl-main\RemoteAppControl-main\RemoteAppControl\RemoteAppControl\obj\Debug\RemoteAppControl.csproj.CopyComplete
 C:\Users\2018209\Desktop\RemoteAppControl-main\RemoteAppControl-main\RemoteAppControl\RemoteAppControl\obj\Debug\RemoteAppControl.exe
 C:\Users\2018209\Desktop\RemoteAppControl-main\RemoteAppControl-main\RemoteAppControl\RemoteAppControl\obj\Debug\RemoteAppControl.pdb
+D:\RANDOM SHIT 2.0\háaszéhonnétudjam\záró\RemoteAppControl\RemoteAppControl\bin\Debug\websocket-sharp.dll
+D:\RANDOM SHIT 2.0\háaszéhonnétudjam\záró\RemoteAppControl\RemoteAppControl\bin\Debug\websocket-sharp.xml
