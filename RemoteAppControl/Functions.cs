@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Drawing;
 using System.Net.Sockets;
+using OpenHardwareMonitor.Hardware;
 
 namespace RemoteAppControl
 {
@@ -137,9 +138,74 @@ namespace RemoteAppControl
             }
             socket.Close();
         }
+        private static string getResourceInfo()
+        {
+            string usage = "";
+            foreach (var hardwareItem in Program.computer.Hardware)
+            {
+                if (hardwareItem.HardwareType == HardwareType.CPU)
+                {
+                    hardwareItem.Update();
+                    foreach (var sensor in hardwareItem.Sensors)
+                    {
+                        if (sensor.SensorType == SensorType.Load && sensor.Name == "CPU Total")
+                        {
+                            usage = usage + sensor.Value + ";";
+                        }
+                    }
+                }
+                else if (hardwareItem.HardwareType == HardwareType.RAM)
+                {
+                    hardwareItem.Update();
+                    foreach (var sensor in hardwareItem.Sensors)
+                    {
+                        if (sensor.SensorType == SensorType.Load)
+                        {
+                            usage = usage + sensor.Value;
+                        }
+                    }
+                }
+            }
+            return usage;
+        }
+        private static bool getRunningState(int index)
+        {
+            bool running = false;
+            try
+            {
+                running = Process.GetProcessById(Program.processes[index].Id) != null;
+            }
+            catch (Exception) { }
+            return running;
+        }
         public static void update(string data)
         {
-            Program.WSServer.WebSocketServices.Broadcast("Hello, clients!");
+            string dataToSend = "";
+            if (data.Length > 0)
+            {
+                int requestid = Convert.ToInt32(data);
+                bool requestrunning = getRunningState(requestid);
+                if (requestrunning)
+                {
+                    Process.GetProcessById(Program.processes[requestid].Id).Kill();
+                }
+                else
+                {
+                    Program.processes[requestid].Start();
+                }
+            }
+            var ids = Program.WSServer.WebSocketServices["/"].Sessions.IDs;
+            for (int i = 0; i < Program.processes.Length; i++)
+            {
+                bool running = getRunningState(i);
+                dataToSend = (running) ? (dataToSend + "1") : (dataToSend + "0");
+                dataToSend = (i != Program.processes.Length - 1) ? (dataToSend + ";") : (dataToSend);
+            }
+            dataToSend = dataToSend + "\n" + getResourceInfo();
+            foreach (var id in ids)
+            {
+                Program.WSServer.WebSocketServices["/"].Sessions.SendTo(Encoding.UTF8.GetBytes(dataToSend), id);
+            }
         }
     }
 }

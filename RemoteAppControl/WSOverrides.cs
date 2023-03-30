@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Text;
 using WebSocketSharp;
 using WebSocketSharp.Server;
 
@@ -8,7 +8,7 @@ namespace RemoteAppControl
     {
         protected override void OnOpen()
         {
-
+            Program.WSServer.WebSocketServices["/"].Sessions.SendTo(Encoding.UTF8.GetBytes(Program.processes.Length.ToString()), ID);
         }
         protected override void OnClose(CloseEventArgs e)
         {
@@ -16,7 +16,6 @@ namespace RemoteAppControl
         }
         protected override void OnMessage(MessageEventArgs e)
         {
-            Console.WriteLine("Received message from " + Context.UserEndPoint + ": " + e.Data);
             Functions.update(e.Data);
         }
     }

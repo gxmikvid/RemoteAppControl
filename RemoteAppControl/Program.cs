@@ -3,25 +3,26 @@ using System.Net;
 using System.Net.Sockets;
 using WebSocketSharp;
 using WebSocketSharp.Server;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using System.Drawing;
-using System.Collections.Generic;
-using System.IO;
+using OpenHardwareMonitor.Hardware;
 
 namespace RemoteAppControl
 {
     internal class Program
     {
-        //variable must be global
+        //global variables
         public static WebSocketServer WSServer;
+        public static Process[] processes = Functions.getIconsAndProcesses();
+        public static Computer computer = new Computer();
+        
         static void Main(string[] args)
         {
-            Process[] processes = Functions.getIconsAndProcesses();
+            //start sensors
+            computer.Open();
+            computer.CPUEnabled = true;
+            computer.RAMEnabled = true;
             //start http server
             Socket httpsocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             httpsocket.Bind(new IPEndPoint(IPAddress.Any, 80));
@@ -62,6 +63,7 @@ namespace RemoteAppControl
             }
             httpsocket.Close();
             WSServer.Stop();
+            computer.Close();
         }
     }
 }

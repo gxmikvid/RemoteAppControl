@@ -43,16 +43,7 @@ img {
     width: 100%;
 }
 
-.statusActive {
-    background-color: rgb(100, 200, 100);
-    position: absolute;
-    width: 20%;
-    left: 0;
-    top: 0;
-}
-
-.statusInactive {
-    background-color: rgb(200, 100, 100);
+.status {
     position: absolute;
     width: 20%;
     left: 0;
